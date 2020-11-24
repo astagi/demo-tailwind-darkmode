@@ -1,4 +1,6 @@
-# demo-tailwind-darkmode
+# Dark Mode Switch Demo
+
+🌒 Tailwind CSS 2 Dark Mode switch with Vue.js + Oruga + FontAwesome.
 
 ## Project setup
 ```
