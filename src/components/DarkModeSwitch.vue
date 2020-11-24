@@ -8,6 +8,11 @@
 <script>
 import Vue from "vue";
 
+const MODE = {
+  DARK: 'dark',
+  LIGHT: 'light'
+};
+
 export default Vue.extend({
   name: "DarkModeSwitch",
   data() {
@@ -17,22 +22,22 @@ export default Vue.extend({
   },
   mounted() {
     this.darkMode =
-      localStorage.theme == "dark"
+      localStorage.theme == MODE.DARK
         ? true
-        : localStorage.theme == "light"
+        : localStorage.theme == MODE.LIGHT
         ? false
-        : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        : window.matchMedia('(prefers-color-scheme: dark)').matches;
   },
   watch: {
     darkMode(isDarkNow, wasDarkBefore) {
+      let html = document.querySelector('html');
       if (wasDarkBefore !== null) {
-        localStorage.theme = isDarkNow ? "dark" : "light";
+        localStorage.theme = isDarkNow ? MODE.DARK : MODE.LIGHT;
       }
-      let html = document.querySelector("html");
       if (isDarkNow) {
-        html.classList.add("dark");
+        html.classList.add(MODE.DARK);
       } else {
-        html.classList.remove("dark");
+        html.classList.remove(MODE.DARK);
       }
     },
   },
