@@ -4,8 +4,8 @@ const vhfix = require('postcss-100vh-fix');
 
 module.exports = {
   plugins: [
-    vhfix,
     tailwindcss,
+    vhfix,
     autoprefixer,
   ]
 };
